@@ -5,11 +5,10 @@ A simple bash script to sync a local directory to a remote directory using rsync
 ## Usage
 
 ```
-./sync.sh [--dry-run] [-v]
+./sync.sh [--dry-run]
 ```
 
 - `--dry-run`: Perform a dry run (no actual sync)
-- `-v`: Enable verbose mode for detailed output and tracing
 
 ## Configuration
 
