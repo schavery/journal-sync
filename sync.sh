@@ -11,7 +11,7 @@ else
 fi
 
 # Rsync options
-RSYNC_OPTIONS="-avz --exclude-from=./exclude.txt"
+RSYNC_OPTIONS="-az --exclude-from=./exclude.txt"
 
 # Check if --dry-run option is provided
 if [[ "$1" == "--dry-run" ]]; then
@@ -19,11 +19,17 @@ if [[ "$1" == "--dry-run" ]]; then
     echo "Performing dry run..."
 fi
 
-# Enable tracing
-set +x
+# Check if -v option is provided
+if [[ "$1" == "-v" || "$2" == "-v" ]]; then
+    # Enable tracing and add -v option to rsync
+    set -x
+    RSYNC_OPTIONS="$RSYNC_OPTIONS -v"
+fi
 
 # Perform the rsync operation
 rsync $RSYNC_OPTIONS "$localdir" "$user@$host:$remotedir"
 
-# Disable tracing
-set -x
+# Disable tracing if -v option was provided
+if [[ "$1" == "-v" || "$2" == "-v" ]]; then
+    set +x
+fi
