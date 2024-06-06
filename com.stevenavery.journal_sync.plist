@@ -4,11 +4,27 @@
 <dict>
     <key>Label</key>
     <string>com.stevenavery.journal_sync</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/savery/dev/rsync-nas</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/savery/dev/rsync-nas/sync.sh</string>
+        <string>/usr/bin/open</string>
+        <string>-a</string>
+        <string>script-wrapper.app</string>
     </array>
+
     <key>StartInterval</key>
     <integer>86400</integer>
+
+    <key>StandardOutPath</key>
+    <string>sync.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>sync.error.log</string>
 </dict>
 </plist>

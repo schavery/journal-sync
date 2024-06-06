@@ -22,12 +22,13 @@ Modify the `config.txt` file to set the SSH user, remote host, local directory, 
   - The remote path must already exist or rsync will fail
   - If there are spaces in the remote path, escape them with `\`
 - Rsync service must be enabled in Synology DSM
-
+- Make sure you have the right path in the `.plist` file
 
 ## Launchctl
 
-Runs daily.
+Runs daily. Copy the plist into your launch agent directory, and then load it.
 
 ```shell
-launchctl load /path/to/com.stevenavery.journal_sync.plist
+cp com.stevenavery.journal_sync.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.stevenavery.journal_sync.plist
 ```
