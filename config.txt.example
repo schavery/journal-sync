@@ -1,0 +1,7 @@
+# Admin user on the NAS. Make sure rsync service is enabled
+user=nas_username
+host=nas_hostname.local
+
+localdir='/Users/youruser/Documents/my vault/'
+# Must be full path, and must exist before running
+remotedir='/path/to/remote/backup/directory/'

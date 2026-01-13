@@ -1,8 +1,0 @@
-# Admin user on the NAS. Make sure rsync service is enabled
-user=user
-host=host
-
-
-localdir='/path/to/local'
-# Must be full path, and must exist before running
-remotedir='/var/services/homes/example'

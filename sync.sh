@@ -11,7 +11,7 @@ else
 fi
 
 # Rsync options
-RSYNC_OPTIONS="-avz --exclude-from=./exclude.txt"
+RSYNC_OPTIONS="-avzs --size-only --exclude-from=./exclude.txt"
 
 # Check if --dry-run option is provided
 if [[ "$1" == "--dry-run" ]]; then
@@ -20,4 +20,4 @@ if [[ "$1" == "--dry-run" ]]; then
 fi
 
 # Perform the rsync operation
-rsync $RSYNC_OPTIONS "$localdir" "$user@$host:$remotedir"
+/opt/homebrew/bin/rsync $RSYNC_OPTIONS "$localdir" "$user@$host:$remotedir"

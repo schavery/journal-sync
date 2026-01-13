@@ -59,7 +59,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>cd ~/dev/rsync-nas/; ./sync.sh
+					<string>cd ~/dev/journal-sync/; ./sync.sh
 </string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>

@@ -6,7 +6,7 @@
     <string>com.stevenavery.journal_sync</string>
 
     <key>WorkingDirectory</key>
-    <string>/Users/savery/dev/rsync-nas</string>
+    <string>/Users/savery/dev/journal-sync</string>
 
     <key>RunAtLoad</key>
     <true/>
