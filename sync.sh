@@ -11,7 +11,7 @@ else
 fi
 
 # Rsync options
-RSYNC_OPTIONS="-avzs --size-only --exclude-from=./exclude.txt"
+RSYNC_OPTIONS="-avzs --size-only --contimeout=30 --exclude-from=./exclude.txt"
 
 # Check if --dry-run option is provided
 if [[ "$1" == "--dry-run" ]]; then
