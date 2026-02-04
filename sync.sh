@@ -11,13 +11,13 @@ else
 fi
 
 # Rsync options
-RSYNC_OPTIONS="-avzs --size-only --contimeout=30 --exclude-from=./exclude.txt"
+RSYNC_OPTIONS=(-avzs --size-only --exclude-from=./exclude.txt -e "ssh -o ConnectTimeout=30")
 
 # Check if --dry-run option is provided
 if [[ "$1" == "--dry-run" ]]; then
-    RSYNC_OPTIONS="$RSYNC_OPTIONS --dry-run"
+    RSYNC_OPTIONS+=(--dry-run)
     echo "Performing dry run..."
 fi
 
 # Perform the rsync operation
-/opt/homebrew/bin/rsync $RSYNC_OPTIONS "$localdir" "$user@$host:$remotedir"
+/opt/homebrew/bin/rsync "${RSYNC_OPTIONS[@]}" "$localdir" "$user@$host:$remotedir"
