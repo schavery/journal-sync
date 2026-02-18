@@ -35,6 +35,12 @@ sed -i '' "s|<string>/Users/[^<]*/dev/[^<]*</string>|<string>$SCRIPT_DIR</string
 sed -i '' "/<key>WorkingDirectory<\/key>/{ n; s|<string>[^<]*</string>|<string>$SCRIPT_DIR</string>|; }" "$PLIST_PATH"
 echo "  ✓ Updated to: $SCRIPT_DIR"
 
+# Update script-wrapper.app path in ProgramArguments
+echo ""
+echo "Updating script-wrapper.app path..."
+sed -i '' "s|<string>[^<]*script-wrapper\.app</string>|<string>$SCRIPT_DIR/script-wrapper.app</string>|" "$PLIST_PATH"
+echo "  ✓ Updated to: $SCRIPT_DIR/script-wrapper.app"
+
 # Update paths in Automator workflow
 echo ""
 echo "Updating Automator workflow path..."
