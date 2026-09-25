@@ -1,6 +1,8 @@
 # Admin user on the NAS. Make sure rsync service is enabled
 user=nas_username
 host=nas_hostname.local
+# SSH jump host for reaching NAS when not on local network
+jump_host=pi@pi5
 
 localdir='/Users/youruser/Documents/my vault/'
 # Must be full path, and must exist before running
