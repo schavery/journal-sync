@@ -24,13 +24,9 @@
         <false/>
     </dict>
 
-    <key>StartCalendarInterval</key>
-    <dict>
-        <key>Hour</key>
-        <integer>3</integer>
-        <key>Minute</key>
-        <integer>0</integer>
-    </dict>
+    <!-- Every 3 hours; sync.sh skips if the last success was under 20h ago -->
+    <key>StartInterval</key>
+    <integer>10800</integer>
 
     <key>StandardOutPath</key>
     <string>sync.log</string>

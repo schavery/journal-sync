@@ -1,3 +1,5 @@
 /.idea/
 *.log
 config.txt
+.DS_Store
+.last_success

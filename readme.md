@@ -1,6 +1,6 @@
 # Journal Sync
 
-A simple bash script to sync a local directory to a remote NAS using rsync, with a macOS LaunchAgent for daily automated backups.
+A simple bash script to sync a local directory to a remote NAS using rsync, with a macOS LaunchAgent for automated daily backups.
 
 ## Quick Install
 
@@ -39,12 +39,16 @@ Add patterns for files/directories to exclude from sync.
 
 ## Schedule
 
-The LaunchAgent runs daily at 3:00 AM. Edit the `StartCalendarInterval` in the plist to change this.
+The LaunchAgent starts `sync.sh` every 3 hours (`StartInterval` in the plist). A scheduled run only syncs once the last successful sync (`.last_success`) is 20+ hours old, so the backup runs about once a day whenever the Mac is awake and can reach the NAS.
+
+If the NAS is unreachable (e.g. the Mac is in a brief dark wake while asleep), a scheduled run logs it and exits quietly. It only reports an error once there has been no successful sync for 48 hours. Manual runs from a terminal always sync. The thresholds are at the top of `sync.sh`.
 
 ## Logs
 
-- `sync.log` - standard output
-- `sync.error.log` - errors
+- `sync.log` - timestamped record of every run: route, rsync output, result and duration (trimmed to the last 5000 lines)
+- `sync.error.log` - launchd's own errors from starting the job
+
+When a scheduled run fails, the Automator error dialog shows a one-line summary and the log path.
 
 ## Troubleshooting
 
